@@ -1,0 +1,27 @@
+class_name ServiceData extends Resource
+
+@export var config_repos: Array[String]
+@export var source_repos: Array[String]
+
+func _init():
+	config_repos = []
+	source_repos = []
+
+static func from_dictionary(data: Dictionary) -> ServiceData:
+	var service_data = ServiceData.new()
+	
+
+	var temp_config_repos : Array[String]= []
+	for item in data.get("config-repos", []):
+		temp_config_repos.append(str(item))
+	service_data.config_repos = temp_config_repos 
+
+	var temp_source_repos : Array[String]= []
+	for item in data.get("source-repos", []):
+		temp_source_repos.append(str(item))
+	service_data.source_repos = temp_source_repos
+
+	return service_data
+
+func get_github_repo_url(repo_name: String) -> String:
+	return "https://github.turbine.com/" + repo_name

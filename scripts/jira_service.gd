@@ -1,7 +1,5 @@
 extends Node
 
-const WorkItem = preload("res://scripts/work_item.gd")
-
 signal issues_fetched(issues: Array[WorkItem])
 signal request_failed(error: String)
 signal request_started()

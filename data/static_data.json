@@ -1,0 +1,12 @@
+{
+	"config-repos": [
+		"RM-Config/ronin-dev",
+		"RM-Config/ronin-prod",
+		"Jupiter-Config/jupiter-dev",
+		"Jupiter-Config/jupiter-prod"
+	],
+	"source-repos": [
+		"MGP-Server",
+		"Jupiter"
+	]
+}

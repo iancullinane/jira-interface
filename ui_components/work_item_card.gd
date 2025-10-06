@@ -1,7 +1,5 @@
 extends Control
 
-const WorkItem = preload("res://scripts/work_item.gd")
-
 @onready var margin_container: MarginContainer = $Margin
 
 const CARD_MARGIN := 8

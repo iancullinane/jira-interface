@@ -1,8 +1,6 @@
 @tool
 extends Control
 
-const WorkItem = preload("res://scripts/work_item.gd")
-
 @onready var bg = $Bg
 @onready var fg = $Fg
 @onready var main_area = $Fg/MainArea

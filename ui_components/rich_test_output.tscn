@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://go6xq8g1fc6e"]
+
+[node name="_RichTextLabel_29" type="RichTextLabel"]
+bbcode_enabled = true
+text = "[url=https://github.turbine.com/docker-go-build]docker-go-build on GitHub[/url]"
+fit_content = true
