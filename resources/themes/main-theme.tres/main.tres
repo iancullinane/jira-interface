@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cm8odm551bxi3"]
+
+[ext_resource type="FontFile" uid="uid://bw7m8rwcrbrq0" path="res://assets/fonts/MonofurNerdFont-Regular.ttf" id="1_i3k0p"]
+
+[resource]
+default_font = ExtResource("1_i3k0p")
+default_font_size = 52

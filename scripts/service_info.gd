@@ -1,8 +1,9 @@
 @tool
 extends HBoxContainer
 
-@onready var service_selector: OptionButton = $ServiceSelector
-@onready var result_container: VBoxContainer = $ResultContainer
+@onready var service_picker: VBoxContainer = $ServicePicker
+# @onready var service_selector: VBoxContainer = $HSplitContainer/MarginContainer/Panel/VBoxContainer
+@onready var result_container: VBoxContainer = $HSplitContainer/MarginContainer2/Panel/ResultContainer
 
 const GITHUB_REPO_BASE_URL = "https://github.turbine.com/%s/%s"
 const RICH_TEXT_LABEL_SCENE = preload("res://ui_components/rich_text_label.tscn")
@@ -28,11 +29,11 @@ func _ready():
 		printerr("Failed to open static_data.json")
 
 
-	service_selector.item_selected.connect(_on_ServiceSelector_item_selected)
+	# service_selector.item_selected.connect(_on_ServiceSelector_item_selected)
 	_on_ServiceSelector_item_selected(1)
 
-func _on_ServiceSelector_item_selected(index):
-	var selected_source_repo = service_selector.get_item_text(index)
+func _on_ServiceSelector_item_selected(_index):
+	var selected_source_repo = "test-service-runtime"
 	
 	var log_string = "Selected source repository: " + selected_source_repo
 	print(log_string)

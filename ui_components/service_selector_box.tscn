@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://crcxlxwak8ly1"]
+
+[ext_resource type="Theme" uid="uid://cm8odm551bxi3" path="res://resources/themes/main-theme.tres/main.tres" id="1_7o2qp"]
+[ext_resource type="Script" uid="uid://c1ccl50d7wkjo" path="res://ui_components/service_selector_box.gd" id="2_d856q"]
+
+[node name="ServiceSelectorBox" type="PanelContainer"]
+custom_minimum_size = Vector2(75, 25)
+size_flags_horizontal = 3
+theme = ExtResource("1_7o2qp")
+script = ExtResource("2_d856q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ServiceSelectorBox" type="VFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 25
+
+[node name="Org" type="Label" parent="MarginContainer/ServiceSelectorBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MGP"
+
+[node name="Repository" type="Label" parent="MarginContainer/ServiceSelectorBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "test-service"

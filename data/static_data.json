@@ -8,5 +8,20 @@
 	"source-repos": [
 		"MGP-Server",
 		"Jupiter"
-	]
+	],
+	"topology": {
+		"MGP-Server": {
+			"source-repos": [
+				"slack-harbinger-service",
+				"cluster-agent",
+				"cloudformation-templates"
+			]
+		},
+		"Jupiter": {
+			"source-repos": [
+				"dragon-service",
+				"tile-map-service"
+			]
+		}
+	}
 }

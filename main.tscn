@@ -1,13 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://jyc57qvcs6fn"]
 
-[ext_resource type="FontFile" uid="uid://bw7m8rwcrbrq0" path="res://assets/fonts/MonofurNerdFont-Regular.ttf" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://ctunmav10qqdq" path="res://scripts/dev.gd" id="1_ig7tw"]
+[ext_resource type="Theme" uid="uid://cm8odm551bxi3" path="res://resources/themes/main-theme.tres/main.tres" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7p0jcko7sx3k" path="res://ui_components/work_item_card.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dl7sdnrpxb172" path="res://scripts/service_info.gd" id="2_h2yge"]
-
-[sub_resource type="Theme" id="Theme_7dm0k"]
-default_font = ExtResource("1_1bvp3")
-default_font_size = 27
+[ext_resource type="PackedScene" uid="uid://crcxlxwak8ly1" path="res://ui_components/service_selector_box.tscn" id="4_lquwl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_7dm0k")
+theme = ExtResource("1_lquwl")
 script = ExtResource("1_ig7tw")
 
 [node name="Bg" type="Panel" parent="."]
@@ -56,7 +53,55 @@ layout_mode = 2
 script = ExtResource("2_h2yge")
 metadata/_tab_index = 0
 
+[node name="HSplitContainer" type="HSplitContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector"]
+layout_mode = 2
+size_flags_horizontal = 3
+touch_dragger_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ServicePicker" type="VBoxContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 629.0
+offset_bottom = 1679.0
+size_flags_horizontal = 3
+
+[node name="TestService" type="HFlowContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer/Panel/ServicePicker"]
+layout_mode = 2
+
+[node name="ServiceSelectorBox" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer/Panel/ServicePicker/TestService" instance=ExtResource("4_lquwl")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="ResultContainer" type="VBoxContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer2/Panel"]
+layout_mode = 0
+offset_right = 1285.0
+offset_bottom = 1679.0
+size_flags_horizontal = 3
+
 [node name="ServiceSelector" type="OptionButton" parent="Fg/MainArea/HSorter/TabContainer/Selector"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -67,10 +112,6 @@ popup/item_0/text = "deploy-service"
 popup/item_0/id = 0
 popup/item_1/text = "docker-go-build"
 popup/item_1/id = 1
-
-[node name="ResultContainer" type="VBoxContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="GetPanel" type="Panel" parent="Fg/MainArea/HSorter/TabContainer"]
 visible = false
