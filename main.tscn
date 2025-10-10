@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://jyc57qvcs6fn"]
+[gd_scene load_steps=8 format=3 uid="uid://jyc57qvcs6fn"]
 
 [ext_resource type="Script" uid="uid://ctunmav10qqdq" path="res://scripts/dev.gd" id="1_ig7tw"]
 [ext_resource type="Theme" uid="uid://cm8odm551bxi3" path="res://resources/themes/main-theme.tres/main.tres" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7p0jcko7sx3k" path="res://ui_components/work_item_card.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://dl7sdnrpxb172" path="res://scripts/service_info.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://dl7sdnrpxb172" path="res://scripts/service_info_ctl.gd" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://crcxlxwak8ly1" path="res://ui_components/service_selector_box.tscn" id="4_lquwl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.0011974451, 0.0011974451, 0.0011974442, 1)
+
+[sub_resource type="Theme" id="Theme_7mycd"]
+Panel/styles/panel = SubResource("StyleBoxFlat_lquwl")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -76,10 +82,7 @@ offset_right = 629.0
 offset_bottom = 1679.0
 size_flags_horizontal = 3
 
-[node name="TestService" type="HFlowContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer/Panel/ServicePicker"]
-layout_mode = 2
-
-[node name="ServiceSelectorBox" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer/Panel/ServicePicker/TestService" instance=ExtResource("4_lquwl")]
+[node name="ServiceSelectorBox" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer/Panel/ServicePicker" instance=ExtResource("4_lquwl")]
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer"]
@@ -93,6 +96,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Panel" type="Panel" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer2"]
 layout_mode = 2
+theme = SubResource("Theme_7mycd")
 
 [node name="ResultContainer" type="VBoxContainer" parent="Fg/MainArea/HSorter/TabContainer/Selector/HSplitContainer/MarginContainer2/Panel"]
 layout_mode = 0

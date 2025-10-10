@@ -1,6 +1,10 @@
 extends PanelContainer
 class_name ServiceSelectorBox
 
+signal box_clicked(org_name: String, repo_name: String)
+
+const selector_scene: PackedScene = preload("res://ui_components/service_selector_box.tscn")
+
 @onready var org: Label = %Org
 @onready var repository: Label = %Repository
 
@@ -9,6 +13,8 @@ class_name ServiceSelectorBox
 const HOVER_COLOR = Color.GREEN
 var original_org_color: Color
 var original_repo_color: Color
+var _org_name: String = ""
+var _repo_name: String = ""
 
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
@@ -16,8 +22,12 @@ func _ready():
 	
 	if org:
 		original_org_color = org.modulate
+		if not _org_name.is_empty():
+			org.text = _org_name
 	if repository:
 		original_repo_color = repository.modulate
+		if not _repo_name.is_empty():
+			repository.text = _repo_name
 
 func _on_mouse_entered():
 	print("mouse entered")
@@ -34,10 +44,10 @@ func _on_mouse_exited():
 		repository.modulate = original_repo_color
 
 static func create(org_name: String, repo_name: String) -> ServiceSelectorBox:
-	var scene = preload("res://ui_components/service_selector_box.tscn")
-	var instance = scene.instantiate() as ServiceSelectorBox
-	instance.set_values(org_name, repo_name)
-	return instance
+	var new_box: ServiceSelectorBox = selector_scene.instantiate()
+	new_box._org_name = org_name
+	new_box._repo_name = repo_name
+	return new_box
 
 func set_values(org_name: String, repo_name: String) -> void:
 	if org:
@@ -45,3 +55,6 @@ func set_values(org_name: String, repo_name: String) -> void:
 	if repository:
 		repository.text = repo_name
 
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		box_clicked.emit(_org_name, _repo_name)

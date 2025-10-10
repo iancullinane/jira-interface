@@ -24,9 +24,9 @@ theme_override_constants/h_separation = 25
 [node name="Org" type="Label" parent="MarginContainer/ServiceSelectorBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "MGP"
+text = "MGP-Server"
 
 [node name="Repository" type="Label" parent="MarginContainer/ServiceSelectorBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "test-service"
+text = "test-service-with-a-long-name"

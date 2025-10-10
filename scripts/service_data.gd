@@ -2,10 +2,12 @@ class_name ServiceData extends Resource
 
 @export var config_repos: Array[String]
 @export var source_repos: Array[String]
+@export var topology: Dictionary
 
 func _init():
 	config_repos = []
 	source_repos = []
+	topology = {}
 
 static func from_dictionary(data: Dictionary) -> ServiceData:
 	var service_data = ServiceData.new()
@@ -20,6 +22,14 @@ static func from_dictionary(data: Dictionary) -> ServiceData:
 	for item in data.get("source-repos", []):
 		temp_source_repos.append(str(item))
 	service_data.source_repos = temp_source_repos
+
+	var topology_data = data.get("topology", {})
+	for key in topology_data.keys():
+		var nested_data = topology_data[key]
+		var temp_nested_repos : Array[String] = []
+		for item in nested_data.get("source-repos", []):
+			temp_nested_repos.append(str(item))
+		service_data.topology[key] = temp_nested_repos
 
 	return service_data
 
