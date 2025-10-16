@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbfkmnmlmiyw1"]
+
+[ext_resource type="Script" uid="uid://ec7uygrsi03q" path="res://ui_components/svc_panel.gd" id="1_7bw1e"]
+[ext_resource type="LabelSettings" uid="uid://du0y8wte7fynq" path="res://resources/label_settings/title.tres" id="1_762lq"]
+[ext_resource type="Theme" uid="uid://cm8odm551bxi3" path="res://resources/themes/main-theme.tres/main.tres" id="2_7bw1e"]
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7bw1e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FlowContainer" type="FlowContainer" parent="ScrollContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SvcName" type="Label" parent="ScrollContainer/VBoxContainer/Panel/FlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MGP-Server/test-service-with-a-long-name"
+label_settings = ExtResource("1_762lq")
+
+[node name="SvcButtons" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/FlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SrcBtn" type="Button" parent="ScrollContainer/VBoxContainer/Panel/FlowContainer/SvcButtons"]
+layout_mode = 2
+theme = ExtResource("2_7bw1e")
+text = "Source"
+
+[node name="ConfigBtn" type="Button" parent="ScrollContainer/VBoxContainer/Panel/FlowContainer/SvcButtons"]
+layout_mode = 2
+theme = ExtResource("2_7bw1e")
+text = "opsv2-config"

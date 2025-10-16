@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://1234568aa0"]
+
+[ext_resource type="Script" uid="uid://bch7n61iluipl" path="res://ui_components/service_group_separator.gd" id="1_jcwqd"]
+[ext_resource type="Theme" uid="uid://cm8odm551bxi3" path="res://resources/themes/main-theme.tres/main.tres" id="1_obnbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug2e3"]
+bg_color = Color(0.5709799, 0.57097995, 0.5709797, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="ServiceGroupSeparator" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -2120.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_obnbp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ug2e3")
+script = ExtResource("1_jcwqd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="GroupName" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+text = "Group Name"
+vertical_alignment = 1

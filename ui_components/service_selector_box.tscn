@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crcxlxwak8ly1"]
+[gd_scene load_steps=4 format=3 uid="uid://crcxlxwak8ly1"]
 
 [ext_resource type="Theme" uid="uid://cm8odm551bxi3" path="res://resources/themes/main-theme.tres/main.tres" id="1_7o2qp"]
 [ext_resource type="Script" uid="uid://c1ccl50d7wkjo" path="res://ui_components/service_selector_box.gd" id="2_d856q"]
+[ext_resource type="FontFile" uid="uid://dobx73bou7p26" path="res://assets/fonts/determination.ttf" id="3_o83bv"]
 
 [node name="ServiceSelectorBox" type="PanelContainer"]
 custom_minimum_size = Vector2(75, 25)
@@ -24,9 +25,13 @@ theme_override_constants/h_separation = 25
 [node name="Org" type="Label" parent="MarginContainer/ServiceSelectorBox"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o83bv")
 text = "MGP-Server"
 
 [node name="Repository" type="Label" parent="MarginContainer/ServiceSelectorBox"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 text = "test-service-with-a-long-name"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -9,6 +9,18 @@
 		"MGP-Server",
 		"Jupiter"
 	],
+	"service-groups": {
+		"platform-services": [
+			"cluster-agent",
+			"slack-harbinger-service",
+			"deploy-service",
+			"notification-service"
+		],
+		"core-game-services": [
+			"authentication-service",
+			"fulfillment-service"
+		]
+	},
 	"topology": {
 		"MGP-Server": {
 			"source-repos": [

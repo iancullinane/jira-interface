@@ -5,3 +5,4 @@
 [resource]
 default_font = ExtResource("1_i3k0p")
 default_font_size = 52
+LinkButton/constants/outline_size = 6
